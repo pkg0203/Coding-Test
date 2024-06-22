@@ -2,5 +2,5 @@
 
 import sys
 
-Character=sys.stdin.readline()[0]
-sys.stdout.write(f'{ord(Character)}')
+Character = sys.stdin.readline()[0]
+sys.stdout.write(f"{ord(Character)}")

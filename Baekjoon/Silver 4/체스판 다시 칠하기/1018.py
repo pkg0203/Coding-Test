@@ -35,8 +35,8 @@ def find_sol():
         if j + LENGTH < M:
             j += 1
         elif i + LENGTH < N:
-            i+=1
-            j=0
+            i += 1
+            j = 0
         else:
             break
 
