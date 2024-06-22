@@ -23,7 +23,7 @@ def find_sol(i=1, j=15):
     global answer
     partial_chess = []
     for row in range(LENGTH):
-        partial_chess.append(input_chess[row][j : j + LENGTH])
+        partial_chess.append(input_chess[i+row][j : j + LENGTH])
     # update answer
     comp_answer = count_chess(partial_chess)
     answer = min(answer, comp_answer)
