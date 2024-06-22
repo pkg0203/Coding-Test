@@ -25,12 +25,13 @@ for testcase in range(T):
     else:
         if d > sum_square:
             result = 0
-        # Circumscription
-        elif d == sum_square or d == sub_square:
+        elif d == sum_square:
             result = 1
-        elif d < sum_square:
-            result = 2
+        elif d == sub_square:
+            result = 1
         elif d < sub_square:
             result = 0
+        elif d < sum_square:
+            result = 2
 
     sys.stdout.write(f"{result}\n")
