@@ -19,7 +19,7 @@ def count_chess(partial_chess):
     return min(count_B, count_W)
 
 
-def find_sol(i=1, j=15):
+def find_sol(i=0, j=0):
     global answer
     partial_chess = []
     for row in range(LENGTH):
