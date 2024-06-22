@@ -19,20 +19,26 @@ def count_chess(partial_chess):
     return min(count_B, count_W)
 
 
-def find_sol(i=0, j=0):
+def find_sol():
     global answer
-    partial_chess = []
-    for row in range(LENGTH):
-        partial_chess.append(input_chess[i+row][j : j + LENGTH])
-    # update answer
-    comp_answer = count_chess(partial_chess)
-    answer = min(answer, comp_answer)
+    # initial start point
+    i, j = 0, 0
+    while True:
+        partial_chess = []
+        for row in range(LENGTH):
+            partial_chess.append(input_chess[i + row][j : j + LENGTH])
+        # update answer
+        comp_answer = count_chess(partial_chess)
+        answer = min(answer, comp_answer)
 
-    # move position
-    if j + LENGTH < M:
-        find_sol(i, j + 1)
-    elif i + LENGTH < N:
-        find_sol(i + 1, j=0)
+        # move position
+        if j + LENGTH < M:
+            j += 1
+        elif i + LENGTH < N:
+            i+=1
+            j=0
+        else:
+            break
 
 
 N, M = map(int, sys.stdin.readline().split())
@@ -42,4 +48,4 @@ answer = 64
 for index in range(N):
     input_chess.append(list(sys.stdin.readline())[:M])
 find_sol()
-sys.stdout.write(f'{answer}')
+sys.stdout.write(f"{answer}\n")
