@@ -27,6 +27,6 @@ while walker < len(word):
             continue
     except:
         pass
-    answer+=1
-    walker+=1
+    answer += 1
+    walker += 1
 sys.stdout.write(str(answer))
