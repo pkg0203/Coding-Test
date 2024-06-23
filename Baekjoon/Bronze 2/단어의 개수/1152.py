@@ -3,4 +3,4 @@
 import sys
 
 sentence = list(sys.stdin.readline().split())
-sys.stdout.write(f'{len(sentence)}')
+sys.stdout.write(f"{len(sentence)}")
