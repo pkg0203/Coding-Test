@@ -31,3 +31,7 @@ LEN_A, LEN_B = len(A), len(B)
 answer = []
 find_substring()
 sys.stdout.write(f"{len(answer)}")
+
+# 반례
+# XMJYAUZ
+# MZJAWXU
