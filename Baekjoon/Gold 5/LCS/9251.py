@@ -7,12 +7,15 @@ def find_substring(walker=0, start_idx=0):
     global answer
     # Base case
     if walker == LEN_A:
+        len_str = len(string)
+        if len_str > answer:
+            answer = len_str
         return None
 
     matched = False
     for idx in range(start_idx, LEN_B):
         if A[walker] == B[idx]:
-            answer.append(A[walker])
+            string.append(A[walker])
             next_idx = idx + 1
             matched = True
             break
@@ -28,9 +31,11 @@ A = sys.stdin.readline()[:-1]
 B = sys.stdin.readline()[:-1]
 LEN_A, LEN_B = len(A), len(B)
 
-answer = []
-find_substring()
-sys.stdout.write(f"{len(answer)}")
+answer = 0
+for i in range(LEN_A):
+    string = []
+    find_substring(walker=i)
+sys.stdout.write(f"{answer}")
 
 # 반례
 # XMJYAUZ
