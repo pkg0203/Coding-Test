@@ -1,24 +1,50 @@
 # https://www.acmicpc.net/problem/1068
 
-import sys
+def dfs(node, tree, deleted, visited):
+    if node == deleted:
+        return 0
+    if not tree[node]:
+        return 1
 
+    count = 0
+    visited[node] = True
+    for child in tree[node]:
+        if not visited[child]:
+            count += dfs(child, tree, deleted, visited)
+    
+    if count == 0:
+        return 1
+    return count
 
-def left(idx):
-    return 2 * idx + 1
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().strip().split()
+    
+    n = int(data[0])
+    parents = list(map(int, data[1:n+1]))
+    deleted_node = int(data[n+1])
+    
+    if n == 1:
+        print(0 if deleted_node == 0 else 1)
+        return
 
-def make_tree():
-    pass
-nodes = int(sys.stdin.readline())
-relations = list(map(int, sys.stdin.readline().split()))
-tree = [0] + [-1 for _ in range(2**50 - 1)]
-for idx in range(1, len(relations)):
-    value = idx
-    par_left_idx = left(tree.index(relations[idx]))
-    if tree[par_left_idx] == -1:
-        tree[par_left_idx] = value
+    tree = [[] for _ in range(n)]
+    root = -1
+    
+    for i in range(n):
+        if parents[i] == -1:
+            root = i
+        else:
+            tree[parents[i]].append(i)
+    
+    visited = [False] * n
+    if root == deleted_node:
+        print(0)
     else:
-        par_right_idx = par_left_idx + 1
-        tree[par_right_idx] = value
-print(tree[:100])
-deleted_node = int(sys.stdin.readline())
-# traverse()
+        result = dfs(root, tree, deleted_node, visited)
+        print(result)
+
+if __name__ == "__main__":
+    main()
+
