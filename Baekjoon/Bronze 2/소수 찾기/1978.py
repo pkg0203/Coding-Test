@@ -30,8 +30,8 @@ numbers = map(int, sys.stdin.readline().split())
 answer = 0
 # number가 PRIME에 있으면 answer에 1을 더함
 # number가 PRIME에 없으면
-    # 1. 가장 큰 PRIME보다 작으면 number는 PRIME이 아님
-    # 2. 가장 큰 PRIME보다 크면 PRIME을 확장함
+# 1. 가장 큰 PRIME보다 작으면 number는 PRIME이 아님
+# 2. 가장 큰 PRIME보다 크면 PRIME을 확장함
 for number in numbers:
     while True:
         if number <= PRIMES[-1]:

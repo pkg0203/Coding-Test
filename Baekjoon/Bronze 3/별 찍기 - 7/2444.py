@@ -19,11 +19,11 @@ def print_star(level=1, reverse=False):
         for i in range(level):
             sys.stdout.write(" ")
         # print Star
-        for i in range(2 * (N-level)-1 ):
+        for i in range(2 * (N - level) - 1):
             sys.stdout.write("*")
         sys.stdout.write("\n")
-        if level < N-1:
-            print_star(level + 1,reverse=True)
+        if level < N - 1:
+            print_star(level + 1, reverse=True)
 
 
 N = int(sys.stdin.readline())

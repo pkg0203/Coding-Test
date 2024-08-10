@@ -1,7 +1,7 @@
 # https://www.acmicpc.net/problem/10830
 
-import sys
 import copy
+import sys
 
 
 def multiply(a_matrix, b_matrix):

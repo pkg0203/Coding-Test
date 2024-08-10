@@ -4,7 +4,6 @@
 # https://hongjw1938.tistory.com/47
 import sys
 
-
 # 개행 문자 때문에 마지막은 빼고 담아야 함
 A = sys.stdin.readline()[:-1]
 B = sys.stdin.readline()[:-1]

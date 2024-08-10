@@ -8,7 +8,7 @@ Queue = deque()
 T = int(sys.stdin.readline())
 for testcase in range(T):
     order_list = list(map(str, sys.stdin.readline().split()))
-    if len(order_list)==2:
+    if len(order_list) == 2:
         Queue.append(int(order_list[1]))
 
     else:

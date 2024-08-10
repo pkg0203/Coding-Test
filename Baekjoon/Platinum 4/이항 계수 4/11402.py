@@ -6,9 +6,9 @@
 # 그리고 modulo 계산 공식은 아래와 같다.
 # https://sskl660.tistory.com/75
 
-import sys
 # combination 계산은 library 쓰도록 합시다...
 import math
+import sys
 
 
 # number를 prime에 대한 내림차순 계수를 구하는 함수

@@ -2,7 +2,6 @@
 
 import sys
 
-
 number = int(sys.stdin.readline())
 walker = 2
 while number != 1:

@@ -3,7 +3,7 @@
 import sys
 
 word = sys.stdin.readline()[:-1]
-if word==word[::-1]:
+if word == word[::-1]:
     sys.stdout.write("1")
-else :
+else:
     sys.stdout.write("0")
