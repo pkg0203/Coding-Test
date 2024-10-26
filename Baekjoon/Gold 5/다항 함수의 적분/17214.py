@@ -1,39 +1,58 @@
-# https://www.acmicpc.net/problem/17214
+"""
+[ Mathematics ]
+
+2x+1
+2x-1
+-2x+1
+-2x-1
+"""
+
+
+def antiderivative():
+    coef[1] //= 2
+
+
+def print_coef(num, is_first):
+    if is_first:
+        if num == -1:
+            return "-"
+        if num == 1:
+            return ""
+        else:
+            return num
+    else:
+        if num == -1:
+            return "-"
+        if num == 1:
+            return "+"
+        if num > 0:
+            return "+" + str(num)
+        else:
+            return num
+
 
 import sys
 
-polynomial = sys.stdin.readline()[:-1].split("+")
-antiderivative = []
-CONSTANT_OF_INTEGRATION = "W"
+func = sys.stdin.readline().strip()
+coef = [None, None]
 
-for term in polynomial:
-    # Constant term
-    if term[-1] != "x":
-        antiderivative.append(term + "x")
-    # First order term
-    else:
-        coef_num = term.split("x")[0]
-        if coef_num == "":  # case when coef is "x"
-            coef_num = "1"
-        elif coef_num == "-":  # case when coef is "-x"
-            coef_num = "-1"
-        new_coef = int(coef_num) // 2
-        antiderivative.append(f"{new_coef}xx")
 
-# filtering 1
-for idx in range(len(antiderivative)):
-    term = antiderivative[idx]
-    # Second order term
-    if term[-2] == "x":
-        coef_num = term[:-2]
-    # First order term
-    else:
-        coef_num = term[:-1]
-    # update antiderivative for eliminate 1
-    if coef_num == "1":
-        antiderivative[idx] = term[1:]
-    elif coef_num == "-1":
-        antiderivative[idx] = "-" + term[2:]
+if not "x" in func:
+    coef[1] = 0
+    coef[0] = int(func)
+elif func.split('x')[1] =="":
+    coef[1] = int(func.split("x")[0])
+    coef[0] = 0
+else:
+    coef[1] = int(func.split("x")[0])
+    coef[0] = int(func.split("x")[1])
+antiderivative()
 
-antiderivative.append(CONSTANT_OF_INTEGRATION)
-sys.stdout.write(f"{'+'.join(antiderivative)}")
+if coef[1] == 0 and coef[0] == 0:
+    sys.stdout.write("W")
+elif coef[1] == 0:
+    sys.stdout.write(f"{print_coef(coef[0],True)}x+W")
+elif coef[0] == 0:
+    sys.stdout.write(f"{print_coef(coef[1],True)}xx+W")
+else:
+    sys.stdout.write(f"{print_coef(coef[1],True)}xx{print_coef(coef[0],False)}x+W")
